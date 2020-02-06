@@ -1,5 +1,5 @@
 # blog-oms-fe
-
+> maple-blog管理系统前端页面
 ## Project setup
 ```
 npm install
