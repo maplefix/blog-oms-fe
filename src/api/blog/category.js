@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function listCategory(query) {
   return request({
-    url: '/category/list',
+    url: '/blog/category/list',
     method: 'get',
     params: query
   })
@@ -20,7 +20,7 @@ export function listCategory(query) {
  */
 export function getCategory(id) {
   return request({
-    url: '/category/' + id,
+    url: '/blog/category/' + id,
     method: 'get'
   })
 }
@@ -32,7 +32,7 @@ export function getCategory(id) {
  */
 export function addCategory(data) {
   return request({
-    url: '/category',
+    url: '/blog/category',
     method: 'post',
     data: data
   })
@@ -45,7 +45,7 @@ export function addCategory(data) {
  */
 export function updateCategory(data) {
   return request({
-    url: '/category',
+    url: '/blog/category',
     method: 'put',
     data: data
   })
@@ -58,7 +58,7 @@ export function updateCategory(data) {
  */
 export function delCategory(id) {
   return request({
-    url: '/category/' + id,
+    url: '/blog/category/' + id,
     method: 'delete'
   })
 }

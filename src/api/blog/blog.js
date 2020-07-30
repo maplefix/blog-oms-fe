@@ -6,7 +6,7 @@ import request from '@/utils/request'
  */
 export function listBlog(query) {
   return request({
-    url: '/blog/list',
+    url: '/blog/blog/list',
     method: 'get',
     params: query
   });
@@ -18,7 +18,7 @@ export function listBlog(query) {
  */
 export function getBlog(id) {
   return request({
-    url: '/blog/' + id,
+    url: '/blog/blog/' + id,
     method: 'get'
   });
 }
@@ -29,7 +29,7 @@ export function getBlog(id) {
  */
 export function addBlog(data) {
   return request({
-    url: '/blog',
+    url: '/blog/blog',
     method: 'post',
     data: data
   });
@@ -41,7 +41,7 @@ export function addBlog(data) {
  */
 export function updateBlog(data) {
   return request({
-    url: '/blog',
+    url: '/blog/blog',
     method: 'put',
     data: data
   });
@@ -54,7 +54,7 @@ export function updateBlog(data) {
  */
 export function delBlog(id) {
   return request({
-    url: '/blog/' + id,
+    url: '/blog/blog/' + id,
     method: 'delete'
   })
 }
@@ -71,7 +71,7 @@ export function changeBlogSupport(id, support) {
     support: support
   };
   return request({
-    url: '/blog/support',
+    url: '/blog/blog/support',
     method: 'put',
     data: data
   })
@@ -89,7 +89,7 @@ export function changeBlogComment(id, comment) {
     comment: comment
   };
   return request({
-    url: '/blog/comment',
+    url: '/blog/blog/comment',
     method: 'put',
     data: data
   })
@@ -102,7 +102,7 @@ export function changeBlogComment(id, comment) {
  */
 export function listBlogTagList(query) {
   return request({
-    url: '/blog/tag/' + query,
+    url: '/blog/blog/tag/' + query,
     method: 'get',
   })
 }
@@ -115,7 +115,7 @@ export function listBlogTagList(query) {
  */
 export function addBlogDraft(data) {
   return request({
-    url: '/blog/draft',
+    url: '/blog/blog/draft',
     method: 'post',
     data: data
   })
@@ -128,7 +128,7 @@ export function addBlogDraft(data) {
  */
 export function updateBlogDraft(data) {
   return request({
-    url: '/blog/draft',
+    url: '/blog/blog/draft',
     method: 'put',
     data: data
   })

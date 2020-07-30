@@ -8,7 +8,7 @@ import {updateCategory} from "./category";
  */
 export function listComment(query) {
   return request({
-    url: '/comment/list',
+    url: '/blog/comment/list',
     method: 'get',
     params: query
   })
@@ -21,7 +21,7 @@ export function listComment(query) {
  */
 export function getComment(id) {
   return request({
-    url: '/comment/' + id,
+    url: '/blog/comment/' + id,
     method: 'get'
   })
 }
@@ -33,7 +33,7 @@ export function getComment(id) {
  */
 export function updateComment(data) {
   return request({
-    url: '/comment',
+    url: '/blog/comment',
     method: 'put',
     data: data
   })
@@ -46,7 +46,7 @@ export function updateComment(data) {
  */
 export function delComment(id) {
   return request({
-    url: '/comment/' + id,
+    url: '/blog/comment/' + id,
     method: 'delete'
   })
 }

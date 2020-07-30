@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function listTag(query) {
   return request({
-    url: '/tag/list',
+    url: '/blog/tag/list',
     method: 'get',
     params: query
   })
@@ -20,7 +20,7 @@ export function listTag(query) {
  */
 export function getTag(id) {
   return request({
-    url: '/blog/' + id,
+    url: '/blog/blog/' + id,
     method: 'get'
   })
 }
@@ -32,7 +32,7 @@ export function getTag(id) {
  */
 export function addTag(data) {
   return request({
-    url: '/blog',
+    url: '/blog/blog',
     method: 'post',
     data: data
   })
@@ -45,7 +45,7 @@ export function addTag(data) {
  */
 export function updateTag(data) {
   return request({
-    url: '/blog',
+    url: '/blog/blog',
     method: 'put',
     data: data
   })
@@ -58,7 +58,7 @@ export function updateTag(data) {
  */
 export function delTag(id) {
   return request({
-    url: '/blog/' + id,
+    url: '/blog/blog/' + id,
     method: 'delete'
   })
 }
@@ -75,7 +75,7 @@ export function changeBlogSupport(id, support) {
     support: support
   };
   return request({
-    url: '/blog/support',
+    url: '/blog/blog/support',
     method: 'put',
     data: data
   })
@@ -94,7 +94,7 @@ export function changeBlogComment(id, comment) {
     comment: comment
   };
   return request({
-    url: '/blog/comment',
+    url: '/blog/blog/comment',
     method: 'put',
     data: data
   })
@@ -107,7 +107,7 @@ export function changeBlogComment(id, comment) {
  */
 export function listBlogTagList(query) {
   return request({
-    url: '/blog/tag/' + query,
+    url: '/blog/blog/tag/' + query,
     method: 'get',
   })
 }
@@ -120,7 +120,7 @@ export function listBlogTagList(query) {
  */
 export function addBlogDraft(data) {
   return request({
-    url: '/blog/draft',
+    url: '/blog/blog/draft',
     method: 'post',
     data: data
   })
@@ -133,7 +133,7 @@ export function addBlogDraft(data) {
  */
 export function updateBlogDraft(data) {
   return request({
-    url: '/blog/draft',
+    url: '/blog/blog/draft',
     method: 'put',
     data: data
   })
