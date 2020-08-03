@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function list(query) {
   return request({
-    url: '/operateLog/list',
+    url: '/log/operateLog/list',
     method: 'get',
     params: query
   })

@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function list(query) {
   return request({
-    url: '/loginLog/list',
+    url: '/log/loginLog/list',
     method: 'get',
     params: query
   })
@@ -17,7 +17,7 @@ export function list(query) {
 //获取当前用户的登录日志
 export function listCurrentUserLoginLog(query) {
   return request({
-    url: '/loginLog',
+    url: '/log/loginLog',
     method: 'get',
     params: query
   })

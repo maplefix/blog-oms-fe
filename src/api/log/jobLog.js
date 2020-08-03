@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function getQuartzDetail(id) {
   return request({
-    url: '/jobLog/' + id,
+    url: '/log/jobLog/' + id,
     method: 'get',
   })
 }
