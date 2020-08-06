@@ -28,6 +28,6 @@ module.exports = {
   //备案号
   caseNumber: '陇ICP备19001358号-1',
   //底部文章，支持html语法
-  footerTxt: '© 2019 Maple <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License 2.0</a>',
+  footerTxt: '© 2020 Maple <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License 2.0</a>',
   TokenKey:'Admin-Token'
 };
