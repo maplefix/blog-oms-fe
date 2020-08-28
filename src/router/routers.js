@@ -3,8 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router);
 
-//Layout
+/* Layout */
 import Layout from '@/layout'
+
 /**
  * Note: 路由配置项
  *
@@ -22,7 +23,8 @@ import Layout from '@/layout'
     breadcrumb: false            // 如果设置为false，则不会在breadcrumb面包屑中显示
   }
  */
-//公共路由
+
+// 公共路由
 export const constantRoutes = [
   {
     path: '/redirect',
@@ -30,14 +32,15 @@ export const constantRoutes = [
     hidden: true,
     children: [
       {
-        path: 'redirect/:path',
+        path: '/redirect/:path*',
         component: () => import('@/views/redirect')
       }
     ]
   },
   {
     path: '/login',
-    component: () => import('@/views/login')
+    component: () => import('@/views/login'),
+    hidden: true
   },
   {
     path: '/404',
@@ -58,12 +61,12 @@ export const constantRoutes = [
         path: 'index',
         component: () => import('@/views/index'),
         name: '首页',
-        meta: {title: '首页', icon: 'dashboard',noCache: true,affix: true}
-      }
+        meta: {title: '首页', icon: 'dashboard', noCache: true, affix: true}
+      },
     ]
   },
   {
-    path: 'user',
+    path: '/user',
     component: Layout,
     hidden: true,
     redirect: 'noRedirect',
@@ -99,38 +102,20 @@ export const constantRoutes = [
         path: 'blog/add',
         component: () => import('@/views/blog/blog/add'),
         name: 'AddBlog',
-        meta: {title: '新增文章', noCache: false, activeMenu: '/blog'},
-      }, {
+        meta: {title: '新增文章', noCache: false, activeMenu: '/blog/blog/'},
+      },
+      {
         path: 'blog/edit/:id(\\d+)',
         component: () => import('@/views/blog/blog/edit'),
         name: 'EditBlog',
-        meta: {title: '修改文章', noCache: false, activeMenu: '/blog'},
-      }
-    ]
-  },
-  {
-    path: '/bookManage',
-    component: Layout,
-    hidden: true,
-    redirect: 'noRedirect',
-    children: [
-      {
-        path: 'note/add',
-        component: () => import('@/views/book/note/add'),
-        name: 'AddNote',
-        meta: {title: '新增笔记', noCache: false, activeMenu: '/book/note'},
-      }, {
-        path: 'note/edit/:id(\\d+)',
-        component: () => import('@/views/book/note/edit'),
-        name: 'EditNote',
-        meta: {title: '修改笔记', noCache: false, activeMenu: '/book/note'},
+        meta: {title: '修改文章', noCache: false, activeMenu: '/blog/blog/'},
       }
     ]
   }
 ];
 
 export default new Router({
-  mode: 'history',//去掉url中的#
-  scrollBehavior: () => ({y:0}),
+  mode: 'history', // 去掉url中的#
+  scrollBehavior: () => ({y: 0}),
   routes: constantRoutes
-});
+})
