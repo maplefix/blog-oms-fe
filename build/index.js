@@ -1,34 +1,35 @@
-
-const {run} = require('runjs');
+const { run } = require('runjs');
 const chalk = require('chalk');
 const config = require('../vue.config.js');
 const rawArgv = process.argv.slice(2);
 const args = rawArgv.join(' ');
 
-if(process.env.npm_config_preview || rawArgv.includes('--preview')) {
+if (process.env.npm_config_preview || rawArgv.includes('--preview')) {
   const report = rawArgv.includes('--report');
+
   run(`vue-cli-service build ${args}`);
 
   const port = 8080;
   const publicPath = config.publicPath;
 
-  const connect = require('connect');
-  const serverStatic = require('server-static');
+  var connect = require('connect');
+  var serveStatic = require('serve-static');
   const app = connect();
 
   app.use(
     publicPath,
-    serverStatic('./dist',{
-      index: ['index.html','/']
+    serveStatic('./dist', {
+      index: ['index.html', '/']
     })
   );
 
-  app.listen(port,function () {
-    console.log(chalk.green(`Preview at http://localhost:${port}${publicPath}`));
-    if(report){
-      console.log(chalk.green(`Report at http://localhost:${port}${publicPath}report.html`));
+  app.listen(port, function () {
+    console.log(chalk.green(`> Preview at  http://localhost:${port}${publicPath}`));
+    if (report) {
+      console.log(chalk.green(`> Report at  http://localhost:${port}${publicPath}report.html`))
     }
-  });
-}else {
-  run(`vue-cli-service build ${args}`);
+
+  })
+} else {
+  run(`vue-cli-service build ${args}`)
 }
