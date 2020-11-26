@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function listRedisInfoList(query) {
   return request({
-    url: '/redis/list',
+    url: '/monitor/redis/list',
     method: 'get',
     params: query
   })

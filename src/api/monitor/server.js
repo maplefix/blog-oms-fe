@@ -6,7 +6,7 @@ import request from '@/utils/request'
  */
 export function getServer() {
   return request({
-    url: '/server',
+    url: '/monitor/server',
     method: 'get'
   })
 }

@@ -73,5 +73,9 @@ export function changeCategorySupport(id, support) {
     id: id,
     support: support
   };
-  updateCategory(data);
+  return request({
+    url: '/blog/category',
+    method: 'put',
+    data: data
+  })
 }

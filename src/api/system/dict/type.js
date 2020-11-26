@@ -1,64 +1,64 @@
 import request from '@/utils/request'
 
 /**
- * 查询黑名单列表
+ * 查询字典类型列表
  * @param query
  * @returns {AxiosPromise}
  */
-export function listBlacklist(query) {
+export function listType(query) {
   return request({
-    url: '/monitor/blacklist/list',
+    url: '/system/dict/type/list',
     method: 'get',
     params: query
   })
 }
 
 /**
- * 查询黑名单详细
- * @param id
+ * 查询字典类型详细
+ * @param dictId
  * @returns {AxiosPromise}
  */
-export function getBlacklist(id) {
+export function getType(dictId) {
   return request({
-    url: '/monitor/blacklist/' + id,
+    url: '/system/dict/type/' + dictId,
     method: 'get'
   })
 }
 
 /**
- * 新增黑名单
+ * 新增字典类型
  * @param data
  * @returns {AxiosPromise}
  */
-export function addBlacklist(data) {
+export function addType(data) {
   return request({
-    url: '/monitor/blacklist',
+    url: '/system/dict/type',
     method: 'post',
     data: data
   })
 }
 
 /**
- * 修改黑名单
+ * 修改字典类型
  * @param data
  * @returns {AxiosPromise}
  */
-export function updateBlacklist(data) {
+export function updateType(data) {
   return request({
-    url: '/monitor/blacklist',
+    url: '/system/dict/type',
     method: 'put',
     data: data
   })
 }
 
 /**
- * 删除黑名单
- * @param id
+ * 删除字典类型
+ * @param dictId
  * @returns {AxiosPromise}
  */
-export function delBlacklist(id) {
+export function delType(dictId) {
   return request({
-    url: '/monitor/blacklist/' + id,
+    url: '/system/dict/type/' + dictId,
     method: 'delete'
   })
 }

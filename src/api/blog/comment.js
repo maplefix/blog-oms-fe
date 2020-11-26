@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import {updateCategory} from "./category";
 
 /**
  * 查询评论列表

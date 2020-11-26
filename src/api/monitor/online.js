@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function list(query) {
   return request({
-    url: '/online/list',
+    url: '/monitor/online/list',
     method: 'get',
     params: query
   })
@@ -20,7 +20,7 @@ export function list(query) {
  */
 export function forceLogout(tokenId) {
   return request({
-    url: '/online/' + tokenId,
+    url: '/monitor/online/' + tokenId,
     method: 'delete'
   })
 }

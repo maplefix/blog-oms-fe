@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function listLink(query) {
   return request({
-    url: '/link/list',
+    url: '/system/link/list',
     method: 'get',
     params: query
   })
@@ -20,7 +20,7 @@ export function listLink(query) {
  */
 export function getLink(id) {
   return request({
-    url: '/link/' + id,
+    url: '/system/link/' + id,
     method: 'get'
   })
 }
@@ -32,7 +32,7 @@ export function getLink(id) {
  */
 export function addLink(data) {
   return request({
-    url: '/link',
+    url: '/system/link',
     method: 'post',
     data: data
   })
@@ -45,7 +45,7 @@ export function addLink(data) {
  */
 export function updateLink(data) {
   return request({
-    url: '/link',
+    url: '/system/link',
     method: 'put',
     data: data
   })
@@ -58,7 +58,7 @@ export function updateLink(data) {
  */
 export function delLink(id) {
   return request({
-    url: '/link/' + id,
+    url: '/system/link/' + id,
     method: 'delete'
   })
 }
@@ -85,7 +85,7 @@ export function changeLinkDisplay(id, display) {
 export function changeLinkStatus(id, pass) {
 
   return request({
-    url: '/link/pass/' + id + "/" + pass,
+    url: '/system/link/pass/' + id + "/" + pass,
     method: 'put',
   })
 }

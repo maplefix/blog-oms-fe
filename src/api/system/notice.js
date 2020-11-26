@@ -1,64 +1,64 @@
 import request from '@/utils/request'
 
 /**
- * 查询黑名单列表
+ * 查询公告列表
  * @param query
  * @returns {AxiosPromise}
  */
-export function listBlacklist(query) {
+export function listNotice(query) {
   return request({
-    url: '/monitor/blacklist/list',
+    url: '/system/notice/list',
     method: 'get',
     params: query
   })
 }
 
 /**
- * 查询黑名单详细
+ * 查询公告详细
  * @param id
  * @returns {AxiosPromise}
  */
-export function getBlacklist(id) {
+export function getNotice(id) {
   return request({
-    url: '/monitor/blacklist/' + id,
+    url: '/system/notice/' + id,
     method: 'get'
   })
 }
 
 /**
- * 新增黑名单
+ * 新增公告
  * @param data
  * @returns {AxiosPromise}
  */
-export function addBlacklist(data) {
+export function addNotice(data) {
   return request({
-    url: '/monitor/blacklist',
+    url: '/system/notice',
     method: 'post',
     data: data
   })
 }
 
 /**
- * 修改黑名单
+ * 修改公告
  * @param data
  * @returns {AxiosPromise}
  */
-export function updateBlacklist(data) {
+export function updateNotice(data) {
   return request({
-    url: '/monitor/blacklist',
+    url: '/system/notice',
     method: 'put',
     data: data
   })
 }
 
 /**
- * 删除黑名单
+ * 删除公告
  * @param id
  * @returns {AxiosPromise}
  */
-export function delBlacklist(id) {
+export function delNotice(id) {
   return request({
-    url: '/monitor/blacklist/' + id,
+    url: '/system/notice/' + id,
     method: 'delete'
   })
 }

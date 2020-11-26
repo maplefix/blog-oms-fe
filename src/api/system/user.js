@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function listUser(query) {
   return request({
-    url: '/user/list',
+    url: '/system/user/list',
     method: 'get',
     params: query
   })
@@ -20,7 +20,7 @@ export function listUser(query) {
  */
 export function getUser(id) {
   return request({
-    url: '/user/' + id,
+    url: '/system/user/' + id,
     method: 'get'
   })
 }
@@ -32,7 +32,7 @@ export function getUser(id) {
  */
 export function addUser(data) {
   return request({
-    url: '/user',
+    url: '/system/user',
     method: 'post',
     data: data
   })
@@ -45,7 +45,7 @@ export function addUser(data) {
  */
 export function updateUser(data) {
   return request({
-    url: '/user',
+    url: '/system/user',
     method: 'put',
     data: data
   })
@@ -58,7 +58,7 @@ export function updateUser(data) {
  */
 export function delUser(id) {
   return request({
-    url: '/user/' + id,
+    url: '/system/user/' + id,
     method: 'delete'
   })
 }
@@ -89,11 +89,11 @@ export function resetUserPwd(id, password) {
  */
 export function changeUserStatus(id, status) {
   const data = {
-    userId: id,
-    status
+    id: id,
+    status:status
   };
   return request({
-    url: '/user/changeStatus',
+    url: '/system/user/changeStatus',
     method: 'put',
     data: data
   })
@@ -105,7 +105,7 @@ export function changeUserStatus(id, status) {
  */
 export function getUserProfile() {
   return request({
-    url: '/user/profile',
+    url: '/system/user/profile',
     method: 'get'
   })
 }
@@ -117,7 +117,7 @@ export function getUserProfile() {
  */
 export function updateUserProfile(data) {
   return request({
-    url: '/user/profile',
+    url: '/system/user/profile',
     method: 'put',
     data: data
   })
@@ -135,7 +135,7 @@ export function updateUserPwd(oldPassword, newPassword) {
     newPassword
   };
   return request({
-    url: '/user/profile/updatePwd',
+    url: '/system/user/profile/updatePwd',
     method: 'put',
     params: data
   })
@@ -148,7 +148,7 @@ export function updateUserPwd(oldPassword, newPassword) {
  */
 export function uploadAvatar(data) {
   return request({
-    url: '/user/profile/avatar',
+    url: '/system/user/profile/avatar',
     method: 'post',
     data: data
   })
