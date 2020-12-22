@@ -59,7 +59,12 @@ export function delComment(id) {
 export function changeCommentDisplay(id, display) {
   let data = {
     id: id,
-    support: diaplay
+    display: display
   };
-  updateComment(data);
+  return request({
+    //url: '/blog/comment',
+    url: '/blog/comment/'+id+'/display/'+display,
+    method: 'put',
+    data: data
+  })
 }

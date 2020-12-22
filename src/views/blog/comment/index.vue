@@ -82,8 +82,8 @@
     <pagination v-show="total>0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize"
                 @pagination="init"/>
 
-    <!-- 评论详细 -->
-    <el-dialog :close-on-click-modal="false" title="评论详细" :visible.sync="open" width="700px">
+    <!-- 查看详情或者修改评论对话框 -->
+    <el-dialog :close-on-click-modal="false" :title="title" :visible.sync="open" width="700px">
       <el-form ref="form" :model="form" label-width="100px" size="mini">
         <el-row>
           <el-col :span="12">
@@ -106,12 +106,13 @@
             <el-form-item label="父评论ID：">{{ form.parentId }}</el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="显示：">
-              <el-switch v-model="form.display" active-color="#13ce66" inactive-color="#ff4949" disabled></el-switch>
+            <el-form-item label="显示：" prop="display">
+              <el-switch v-model="form.display" active-color="#13ce66" inactive-color="#ff4949" :disabled="disabled"></el-switch>
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item label="评论内容：">{{ form.content }}</el-form-item>
+            <el-form-item label="评论内容："v-show="false">{{ form.htmlContent }}</el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="评论时间: ">{{ parseTime(form.createDate) }}</el-form-item>
@@ -119,7 +120,8 @@
         </el-row>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="open = false">关 闭</el-button>
+        <el-button type="primary" @click="submitForm" v-if="isShow">确 定</el-button>
+        <el-button @click="cancelBtn">取 消</el-button>
       </div>
     </el-dialog>
   </div>
@@ -134,6 +136,7 @@
     changeCommentDisplay,
   } from "@/api/blog/comment";
   import initData from '@/mixins/initData'
+  import {listBlogTagList} from "@/api/blog/blog";
 
   export default {
     mixins: [initData],
@@ -144,7 +147,12 @@
           nickName: undefined,
           display: undefined,
           location: undefined,
-        }
+        },
+        //初始化时将修改或者查看详情的确认按钮显示，当点详细的时候隐藏，并在关闭窗口后变为显示
+        isShow: true,
+        //switch是否不可编辑,默认可以，当点击详情时变为不可编辑，并在关闭窗口后变为可编辑
+        disabled: false
+
       };
     },
     created() {
@@ -178,10 +186,20 @@
       },
       /** 详细按钮操作 */
       handleView(row) {
+        this.isShow = false;
+        this.disabled = true;
         this.open = true;
         this.form = row;
+      },
+      /**关闭详细的窗口时，让确认修改按钮是正常显示,switch正常可编辑**/
+      cancelBtn() {
+        this.open = false;
+        this.reset();
+        setTimeout(()=>{
+          this.isShow = true;
+          this.disabled = false
+        },200);//延迟0.2秒显示，优化页面显示效果
       },
     }
   };
 </script>
-
